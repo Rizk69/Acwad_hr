@@ -24,7 +24,7 @@ void main() async {
   await initAppModule();
   runApp(
     EasyLocalization(
-      supportedLocales: const [ARABIC_LOCAL, ENGLISH_LOCAL],
+      supportedLocales: const [ ENGLISH_LOCAL],
       path: ASSTET_PATH_LOCALISATION,
       child: Phoenix(child: MyApp()),
     ),

@@ -1,12 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr/app/app_prefs.dart';
 import 'package:hr/app/di.dart';
 import 'package:hr/presentation/resources/assets_manager.dart';
 import 'package:hr/presentation/resources/routes_manager.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -19,6 +17,18 @@ class _SplashViewState extends State<SplashView>
     with SingleTickerProviderStateMixin {
   final AppPreferences _appPreferences = instance<AppPreferences>();
   Timer? _timer;
+  late final AnimationController _controller =
+      AnimationController(vsync: this, duration: const Duration(seconds: 2))
+        ..repeat(reverse: false);
+  late final Animation<Offset> _offesttopAnimation = Tween<Offset>(
+          begin: Offset(-0.3, 0), end: Offset(-0.1, 0))
+      .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+  late final Animation<Offset> _offestAnimation = Tween<Offset>(
+          begin: Offset.zero, end: Offset(0, 0.2))
+      .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+  late final Animation<Offset> _offestdownAnimation = Tween<Offset>(
+          begin: Offset(0.3, 0), end: Offset(0.1, 0))
+      .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
 
   _startDelay() {
     _timer = Timer(const Duration(seconds: 3), _goNext);
@@ -36,13 +46,13 @@ class _SplashViewState extends State<SplashView>
   @override
   void initState() {
     super.initState();
-
     _startDelay();
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    _controller.dispose();
 
     super.dispose();
   }
@@ -59,12 +69,41 @@ class _SplashViewState extends State<SplashView>
         ),
         child: Stack(children: <Widget>[
           Align(
+            alignment: Alignment.topLeft,
+            child: SlideTransition(
+              position: _offesttopAnimation,
+              child: Container(
+                alignment: Alignment.topLeft,
+                child: Image.asset(
+                  'assets/images/pattern top.png',
+                ),
+              ),
+            ),
+          ),
+          Align(
             alignment: Alignment.topCenter,
-            child: Container(
-              width: 50.w,
-              height: 50.h,
-              alignment: Alignment.center,
-              child: SvgPicture.asset(IconAssets.icon),
+            child: SlideTransition(
+              position: _offestAnimation,
+              child: Container(
+                width: 50.w,
+                height: 50.h,
+                alignment: Alignment.center,
+                child: Image.asset(
+                  'assets/images/logo_omran-removebg-preview 1.png',
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: SlideTransition(
+              position: _offestdownAnimation,
+              child: Container(
+                alignment: Alignment.bottomRight,
+                child: Image.asset(
+                  'assets/images/pattern down.png',
+                ),
+              ),
             ),
           ),
         ]),

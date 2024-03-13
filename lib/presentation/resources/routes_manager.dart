@@ -5,6 +5,8 @@ import 'package:hr/presentation/login/view/login_view.dart';
 import 'package:hr/generated/locale_keys.g.dart';
 import 'package:hr/presentation/splash/presentation/view/splash_view.dart';
 
+import '../home/presentation/home.dart';
+
 
 class Routes {
   static const String splashRoute = "/splash";
@@ -29,6 +31,9 @@ class RouteGenerator {
       case Routes.loginRoute:
         initLoginModule();
         return MaterialPageRoute(builder: (_) =>  LoginView());
+        case Routes.homeRoute:
+        initLoginModule();
+        return MaterialPageRoute(builder: (_) =>  HomeController());
 
 
 

@@ -10,6 +10,7 @@ class ImageAssets {
 
 class IconAssets {
   static const String icon = "$iconPath/icon.svg";
+  static const String logo = "$imagePath/svg/logo_omran-removebg-preview 1.svg";
 
 
 }

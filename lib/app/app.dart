@@ -41,6 +41,7 @@ class _MyAppState extends State<MyApp> {
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {
           return MaterialApp(
+            debugShowMaterialGrid: false,
             builder: (context, child) {
               return ResponsiveWrapper.builder(
                 ClampingScrollWrapper.builder(context, child!),

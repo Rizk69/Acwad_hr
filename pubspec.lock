@@ -377,6 +377,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  fluid_bottom_nav_bar:
+    dependency: "direct main"
+    description:
+      name: fluid_bottom_nav_bar
+      sha256: fc3ea867acb8d0a259bbf6ee9e0e18e644fa4c5c9eb82b9753c2616dd0e3d519
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.0"
   flutter:
     dependency: "direct main"
     description: flutter
