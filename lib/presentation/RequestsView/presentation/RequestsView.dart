@@ -117,7 +117,7 @@ class RequestsView extends StatelessWidget {
                     IconButton(onPressed: (){}, icon: Icon(Icons.check,color: ColorManager.mediumGreen,)),
                     IconButton(onPressed: (){}, icon: Icon(Icons.clear,color: ColorManager.red,)),
                     IconButton(onPressed: (){
-                      Navigator.pushNamed(context, Routes.successfullyRoute);
+                      Navigator.pushNamed(context, Routes.requestsDetailsRoute);
 
                     }, icon: Icon(Icons.arrow_forward_ios,color: ColorManager.baseColor,)),
 
