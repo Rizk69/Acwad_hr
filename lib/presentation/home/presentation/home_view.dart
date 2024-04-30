@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hr/presentation/resources/routes_manager.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/values_manager.dart';
@@ -95,20 +96,29 @@ class HomeView extends StatelessWidget {
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              border: Border.all(
-                                  color: ColorManager.baseColor, width: 3),
-                            ),
-                            child: SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: Image.asset(
-                                'assets/images/14c5de9837cee409060e4b740a7ecd82.png',
-                                fit: BoxFit.fill,
+                          itemBuilder: (context, index) => InkWell(
+                            splashColor: Colors.transparent,
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, Routes.groupDetailsRoute);
+                            },
+                            child: Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(100),
+                                border: Border.all(
+                                    color: ColorManager.baseColor, width: 3),
+                              ),
+                              child: SizedBox(
+                                height: 30,
+                                width: 50,
+                                child: Image.asset(
+                                  'assets/images/14c5de9837cee409060e4b740a7ecd82.png',
+                                  height: 30,
+                                  width: 30,
+                                ),
                               ),
                             ),
                           ),
@@ -133,7 +143,8 @@ class HomeView extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 8),
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 17),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 17),
                   decoration: BoxDecoration(
                       color: ColorManager.white,
                       borderRadius: BorderRadius.circular(15),
@@ -146,8 +157,8 @@ class HomeView extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        padding:
-                            const EdgeInsets.symmetric(vertical: 15, horizontal: 18),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 18),
                         decoration: BoxDecoration(
                             color: ColorManager.grey2.withOpacity(0.9),
                             borderRadius: BorderRadius.circular(15)),
@@ -168,7 +179,8 @@ class HomeView extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 8),
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 17),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 17),
                   decoration: BoxDecoration(
                       color: ColorManager.white,
                       borderRadius: BorderRadius.circular(15),
@@ -181,12 +193,13 @@ class HomeView extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        padding:
-                            const EdgeInsets.symmetric(vertical: 15, horizontal: 18),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 18),
                         decoration: BoxDecoration(
                             color: ColorManager.grey2.withOpacity(0.9),
                             borderRadius: BorderRadius.circular(15)),
-                        child:Image.asset('assets/images/Sports equipment.png',height: 35),
+                        child: Image.asset('assets/images/Sports equipment.png',
+                            height: 35),
                       ),
                       const SizedBox(
                         width: AppSize.s15,
